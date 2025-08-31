@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f4f4f4; padding: 20px;">
+    <form action="" method="post" style="background-color: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px;">
+        <h2 style="text-align: center; color: #2c3e50;">Flight Prediction Form</h2>
+        
+        {{ form.hidden_tag() }}
+
+        {% for field in form %}
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: bold; color: #34495e;">{{ field.label }}</label>
+                <div>
+                    {{ field(class="form-control") }}
+                    {% if field.errors %}
+                        <div style="color: red; font-size: 0.9em;">
+                            {% for error in field.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <div style="text-align: center;">
+            {{ form.submit(class='btn btn-primary') }}
+        </div>
+
+        <br>
+        <div style="text-align: center;">
+            {{ output }}
+        </div>
+
+        <br>
+        <div style="text-align: center;">
+            <p>Redirect to Homepage? <a href="{{ url_for('home') }}" style="color: #3498db;">Home</a></p>
+        </div>
+    </form>
+</div>
+
+<style>
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #bdc3c7;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    .btn {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 1.8em;
+        }
+    }
+</style>
+{% endblock content %}

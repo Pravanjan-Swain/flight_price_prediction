@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-image: url('https://www.example.com/flight-bg.jpg'); background-size: cover; background-position: center; position: relative; overflow: hidden; animation: fadeIn 1s;">
+    <div style="background-color: rgba(255, 255, 255, 0.9); padding: 60px 80px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); text-align: center; max-width: 600px; position: relative; z-index: 1;">
+        <h3 style="font-family: 'Roboto', sans-serif; font-size: 2.8em; color: #2c3e50; margin-bottom: 20px; font-weight: 700; letter-spacing: 1.5px;">Flight Prices Prediction Model</h3>
+        <p style="font-family: 'Roboto', sans-serif; font-size: 1.2em; color: #34495e; margin-bottom: 30px; line-height: 1.6;">
+            Explore our machine learning-powered predictions to find the best flight prices. Make informed travel decisions!
+        </p>
+        <a href="{{ url_for('predict') }}" 
+           style="text-decoration: none; background-image: linear-gradient(45deg, #3498db, #8e44ad); color: white; padding: 15px 40px; font-size: 1.2em; border-radius: 50px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; display: inline-block;">
+            Start Predicting
+        </a>
+    </div>
+
+    <div style="position: absolute; top: 20%; left: 10%; width: 300px; height: 300px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; filter: blur(50px); z-index: 0;"></div>
+    <div style="position: absolute; bottom: 10%; right: 15%; width: 250px; height: 250px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; filter: blur(50px); z-index: 0;"></div>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    a:hover {
+        background-color: #1a73e8;
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px rgba(26,115,232,0.5);
+    }
+
+    h3:hover {
+        color: #2980b9;
+        text-shadow: 1px 1px #fff;
+    }
+
+    @media (max-width: 768px) {
+        h3 {
+            font-size: 2em;
+        }
+        p {
+            font-size: 1em;
+        }
+        a {
+            padding: 12px 30px;
+            font-size: 1em;
+        }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+{% endblock content %}
